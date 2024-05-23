@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://bmarslandcn.github.io/game-building-session-tutorials-2024/](https://bmarslandcn.github.io/game-building-session-tutorials-2024/)
+> Open this page at [https://code-ninjas-home-office.github.io/game-building-session-tutorials-2024/](https://code-ninjas-home-office.github.io/game-building-session-tutorials-2024/)
 
 ## Use as Extension
 
