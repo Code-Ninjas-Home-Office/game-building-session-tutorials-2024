@@ -70,6 +70,7 @@ let goalie = sprites.create(img``, SpriteKind.Enemy)
 ---
 Welcome to Code Ninjas! Follow along with a Code Sensei to code your own game!
 
+![project gif](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/Ninja%20Keeper%20intro.gif?raw=true, "Ninja Keeper project")
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
 ## Welcome
