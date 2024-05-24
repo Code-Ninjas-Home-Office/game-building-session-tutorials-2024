@@ -82,6 +82,8 @@ Welcome to Code Ninjas! Follow along with a Code Sensei to code your own game!
 
 ❓ Have you ever used MakeCode Arcade?
 
+Today you will be coding in MakeCode Arcade! Take a look and you'll notice there is already some code on screen - the code doesn't do anything yet, but we'll be using it soon to make a cool game.
+
 --- 
 
 **MakeCode Overview:** 
