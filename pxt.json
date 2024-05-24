@@ -9,7 +9,8 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "ninja-keeper.md"
+        "ninja-keeper.md",
+        "ninja-invaders.md"
     ],
     "testFiles": [
         "test.ts"
