@@ -195,7 +195,7 @@ let goalie: Sprite = null
 Use the A button or space key to kick the ball towards the net.
 
 - :game controller: Open ``||controller:Controller||`` to drag out the entire ``||controller:on A button pressed||`` container into the coding area.
-- :headphones: Open ``||music:Music||`` and drag out a ``||music:play sound||`` block into the ``||controller:on A button pressed||`` container. Click ▼ to select the sound ``||music:knocked||`` so it plays when the ball sprite is kicked.
+- :headphones: Open ``||music:Music||`` and drag out a ``||music:play sound||`` block into the ``||controller:on A button pressed||`` container. Click ▼ to select the sound ``||music:knock||`` so it plays when the ball sprite is kicked.
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
@@ -262,7 +262,7 @@ Use another overlap container to make something happen when you score a goal!
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
 })
 effects.confetti.startScreenEffect(1000)
 ```
