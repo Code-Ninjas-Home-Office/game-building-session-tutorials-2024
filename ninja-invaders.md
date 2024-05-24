@@ -1,4 +1,3 @@
-### @explicitHints true
 # Ninja Invaders Tutorial
 
 ```assetjson
@@ -18,41 +17,44 @@
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(img`
-        . . . . . . . 6 6 . . . . . . .
-        . . . . . . . 6 6 . . . . . . .
-        . . . . . . 6 6 3 6 . . . . . .
-        . . . . . . 6 3 3 6 . . . . . .
-        . . . . . . 6 3 3 6 . . . . . .
-        . . . . . . 6 3 3 6 . . . . . .
-        . . . . . 6 6 3 3 3 6 . . . . .
-        . . . . . 6 3 3 3 3 6 . . . . .
-        . . . . . 6 3 3 3 3 6 . . . . .
-        . . . . . 6 3 3 3 3 6 . . . . .
-        . . . . 6 3 3 3 3 3 6 . . . . .
-        . . . . 6 3 3 3 3 3 6 . . . . .
-        . . . . 6 3 3 3 3 3 3 6 . . . .
-        . . . . 6 3 3 3 3 3 3 6 . . . .
-        . . . . 6 3 3 3 3 3 3 6 . . . .
-        . . . . 6 6 6 6 6 6 6 6 . . . .
-        `, mySprite, 0, -100)
+    projectile = sprites.createProjectileFromSprite(assets.image`ninjaStar`, ninja, 0, -100)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(sprite)
     sprites.destroy(otherSprite, effects.spray, 200)
     info.changeScoreBy(1)
 })
-let mySprite: Sprite = null
-scene.setBackgroundColor(4)
-mySprite = sprites.create(assets.image`ninja`, SpriteKind.Player)
-mySprite.setPosition(76, 101)
-mySprite.setVelocity()
-controller.moveSprite(mySprite, 100, 0)
-mySprite.setStayInScreen(true)
+let enemySprite: Sprite = null
+let projectile: Sprite = null
+let ninja: Sprite = null
+scene.setBackgroundColor(9)
+ninja = sprites.create(assets.image`ninja`, SpriteKind.Player)
+ninja.setPosition(80, 100)
+controller.moveSprite(ninja, 100, 0)
+ninja.setStayInScreen(true)
 info.setScore(0)
 game.onUpdateInterval(1000, function () {
-    alien.setPosition(randint(0, 160), 0)
+    enemySprite = sprites.create(img`
+        . . . . . . . . . . b b b . . . 
+        . . . . . . . . b e e 3 3 b . . 
+        . . . . . . b b e 3 2 e 3 a . . 
+        . . . . b b 3 3 e 2 2 e 3 3 a . 
+        . . b b 3 3 3 3 3 e e 3 3 3 a . 
+        b b 3 3 3 3 3 3 3 3 3 3 3 3 3 a 
+        b 3 3 3 d d d d 3 3 3 3 3 d d a 
+        b b b b b b b 3 d d d d d d 3 a 
+        b d 5 5 5 5 d b b b a a a a a a 
+        b 3 d d 5 5 5 5 5 5 5 d d d d a 
+        b 3 3 3 3 3 3 d 5 5 5 d d d d a 
+        b 3 d 5 5 5 3 3 3 3 3 3 b b b a 
+        b b b 3 d 5 5 5 5 5 5 5 d d b a 
+        . . . b b b 3 d 5 5 5 5 d d 3 a 
+        . . . . . . b b b b 3 d d d b a 
+        . . . . . . . . . . b b b a a . 
+        `, SpriteKind.Enemy)
+    enemySprite.setPosition(randint(0, 160), 0)
+    enemySprite.setVelocity(0, 50)
 })
-mySprite.setPosition(randint(0, 10), 0)
 
 ```
 
@@ -60,11 +62,13 @@ mySprite.setPosition(randint(0, 10), 0)
 **Ninja Invaders!**
 
 In this tutorial, you will create your very own video game. Enemies will be falling from the sky, and it's up to you to destroy them before they can reach you.
+
 Click **Ok** to get started! 
 
-![Game Example](https://raw.githubusercontent.com/CalebMamula/cn-ninja-invaders-gbs/master/images./ninja-invader-gif.gif) 
+![Game Example](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/ninja-invader-gif.gif) 
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
-## Welcome
+## Welcome!
 --- 
 
 **Answer:** 
@@ -72,8 +76,6 @@ Click **Ok** to get started!
 ❓ Have you ever coded before?
 
 ❓ Have you ever used MakeCode Arcade?
-
-Today you will be coding in MakeCode Arcade! Take a look and you'll notice there is already some code on screen - the code doesn't do anything yet, but we'll be using it soon to make a cool game.
 
 --- 
 
@@ -85,15 +87,19 @@ Your ``||text:Code Sensei||`` will now explain MakeCode Arcade's interface!
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
-## Making Our Background   
-
+## Make Our Background   
 First up, our game needs a background. 
 
 - :tree: Open ``||scene:Scene|`` and drag ``||scene:set background color||`` inside the ``||loops:on start||`` container already on the screen. 
 - :mouse pointer: Click the grey bubble in the ``||scene: set background color||`` block and select a color to use as a background. 
 
-## The Game Window 
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
+ 
+```blocks
+scene.setBackgroundColor(9)
+```
 
+## The Game Window 
 As you add code to your project, look at the Game Window on the **lower right** of your screen to see it update! 
 
 ![Game Window](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/GameWindow.png?raw=true "Game Window") 
@@ -101,224 +107,182 @@ As you add code to your project, look at the Game Window on the **lower right** 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
 ## Add Our Player Sprite 
-
 Now we are going to create our main character. 
 
--:paper plane: Open ``||sprites:Sprites||`` and drag the ``||variables(sprites):set mySprite to||`` block to the bottom of the ``||loops: on start||`` container. 
--:mouse pointer: Click the grey oval and select the **ninja** picture from **My Assets**. 
--:keyboard: Change the name of your sprite by clicking on **mySprite** and pressing **Rename variable** to change the sprite name to **ninja**. 
+- :paper plane: Open ``||sprites:Sprites||`` and drag the ``||variables(sprites):set ninja to||`` block to the bottom of the ``||loops: on start||`` container. 
+- :mouse pointer: Click the grey oval and select the **ninja** picture from **My Assets**. 
 
-## Let’s Get Moving 
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
+```blockconfig.local
+let ninja = sprites.create(img``, SpriteKind.Player)
+```
+
+```blocks
+scene.setBackgroundColor(9)
+let ninja = sprites.create(assets.image`ninja`, SpriteKind.Player)
+```
+
+## Let's Get Moving 
 Code the sprite to move left and right across the screen.
 
--:paper plane: Open ``||sprites:Sprites||`` and drag ``||sprites:set sprite position||`` to the bottom of the ``||loops: on start||`` container. 
--:keyboard: Set the **x** value to 80 and the **y** value to 100. 
--:game controller: To move our player, open ``||controller:Controller||`` and drag the ``||controller:move sprite with buttons||`` block to the bottom of the ``||loops:on start||`` container. 
--:keyboard: Change **mySprite** to **ninja**. Then click the + button on the right side of the block to change the **vy** to 0. 
--:paper plane: Open ``||sprites:Sprites||`` and drag ``||sprites:set sprite stay in screen |`` to the bottom of the ``||loops:on start||``. Be sure to change **mySprite** to **ninja**. 
+- :paper plane: Open ``||sprites:Sprites||`` and drag ``||sprites:set ninja position||`` to the bottom of the ``||loops: on start||`` container. 
+- :keyboard: Set the **x** value to 80 and the **y** value to 100. 
+- :game controller: Open ``||controller:Controller||`` and drag the ``||controller:move ninja with buttons||`` block to the bottom of the ``||loops:on start||`` container.
+- :paper plane: Open ``||sprites:Sprites||`` and drag ``||sprites:set ninja stay in screen |`` to the bottom of the ``||loops:on start||``.
 
-This means the arrow keys and WASD can now move the player. Try it out! 
+Try it out: use the **left** and **right** arrow keys or **A** and **D** to move the ninja sprite! 
 
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
-## Spawning The Enemies Part 1 
+```blockconfig.local
+let ninja: Sprite = null
+ninja.setPosition(0, 0)
+controller.moveSprite(ninja, 100, 0)
+ninja.setStayInScreen(true)
+```
+```blocks
+let ninja = sprites.create(assets.image`ninja`, SpriteKind.Player)
+ninja.setPosition(80, 100)
+controller.moveSprite(ninja, 100, 0)
+ninja.setStayInScreen(true)
+```
 
-To spawn our enemies, go to ``||game:Game||`` and pull the ``||game:on game update every||`` onto the editor. This is a container, so you can place it anywhere you'd like. The code we place here will run on a repeating timer. 
+## Spawn The Enemies Part 1 
+Spawn Enemy sprites that fall from the sky!
 
+- :circle: Open ``||game:Game||`` and drag out an ``||game:on game update every||`` container into the coding area. The code we place here will run on a repeating timer. 
+- :paper plane: Open ``||sprites:Sprites||`` and drag a ``||variables(sprites):set enemySprite to||`` block into the ``||game:on game update||`` container. 
+- :mouse pointer: Click the grey box and select a sprite of your choice from **Gallery**. 
+
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
+
+```blockconfig.local
+let enemySprite = sprites.create(img``, SpriteKind.Enemy)
+```
+
+```blocks
+game.onUpdateInterval(1000, function () {
+    let enemySprite = sprites.create(img``, SpriteKind.Enemy)
+})
+```
+
+## Spawn The Enemies Part 2 
+Make the Enemy sprites fall!
+  
+- :paper plane: Open ``||sprites:Sprites||`` and drag a ``||sprites:set enemySprite position to||`` block into the ``||game:on game update||`` container below the other code.
+- :keyboard: In the ``||math:pick random||`` block, change **10** to **160** so Enemy sprites will appear anywhere along the top of the screen.
+- :paper plane: Open ``||sprites:Sprites||`` and drag a ``||sprites:set enemySprite velocity to||`` block into the ``||game:on game update||`` container below the other code.
+- :keyboard: Change the **vx** to **0** so the Enemy sprites only move down.
+
+*Change the number in the ``||game:on game update every||`` container to change how often the Enemy sprites are created!*
+
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
+
+```blockconfig.local
+let enemySprite: Sprite = null
+enemySprite.setPosition(randint(0, 10), 0)
+enemySprite.setVelocity(50, 50)
+```
+
+```blocks
+game.onUpdateInterval(1000, function () {
+    let enemySprite = sprites.create(img``, SpriteKind.Enemy)
+    enemySprite.setPosition(randint(0, 160), 0)
+    enemySprite.setVelocity(0, 50)
+})
+```
+
+## Ready, Aim, LAUNCH! 
+Now we are going to code our ninja sprite's projectiles. 
+
+- :game controller: Open ``||controller:Controller||`` and drag out a ``||controller:on A button pressed||`` container into the coding area.
+- :paper plane: Open ``||sprites:Sprites||`` and drag a ``||variables(sprites):set projectile to||`` block into the container. 
+- :mouse pointer: Click the grey box and select the **ninjaStar** from **My Assets**.
+- :keyboard: Change the **vx** to **0** and the **vy** to **-100** to make the projectiles go straight up.
+
+Try it out: use the A button or the space key to launch projectiles upwards!
+
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
+
+```blockconfig.local
+let projectile = sprites.createProjectileFromSprite(img``, ninja, 50, 50)
+```
+
+```blocks
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(assets.image`ninjaStar`, ninja, 0, -100)
+})
+```
   
 
-  
+## Destroy The Enemies 
+Write the code to destroy the enemies with the projectiles!
 
-Now we are going to create our enemy. Open ``||sprites:Sprites||`` and grab a ``||variables:set [mySprite] to||`` block from the ``||sprites:Sprites||`` dropdown and place it in the ``||game:on game update every||`` container. 
+- :paper plane: Open ``||sprites:Sprites||`` and drag out a ``||sprites:on sprite overlaps||`` container into the coding area.
+- :paper plane: Open ``||sprites:Sprites||`` and drag **2** ``||sprites:destroy||`` blocks into the ``||sprites:overlap||`` container.
+- :mouse pointer: Drag the ``||variables:sprite||`` oval from the container onto the ``||sprites:destroy||`` block to replace **mySprite**.
+- :mouse pointer: Repeat with the ``||variables:otherSprite||`` oval into the other ``||sprites:destroy||`` block.
+- :mouse pointer: Click the **+** to pick a fun effect. Change the duration time to either 100 ms or 200 ms. 
 
-  
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
-  
+```blockconfig.local
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
 
-Click the grey oval and select a sprite of your choice from **Gallery**. 
+})
+```
 
-  
-
-  
-
-Change the name of your sprite by clicking on **mySprite** and pressing **Rename variable**. Pick a name that fits your new enemy. 
-
-  
-
-Then, change the Sprite Kind by clicking on **Player**, and selecting **Enemy**. 
-
+```blocks
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(sprite)
+    sprites.destroy(otherSprite, effects.spray, 200)
+})
+```
  
 
+## Keep track of the score!
+Use MakeCode Arcade's built-in scoring system to keep track of the Enemy sprites you destroyed!
+
+- :id card: Open ``||info:Info||`` and drag a ``||info:set score to 0||`` block into the ``||loops:on start||`` container below the other code.
+- :id card: Open ``||info:Info||`` and drag a ``||info:change score by 1||`` block into the ``||sprites:overlap||`` container. 
   
-
-## GBS: Ninja Invaders 
-
-### Spawning The Enemies Part 2 
-
-  
-
-To make our enemies move, we need to drag a ``||sprites:set [mySprite] velocity to||``block and place it below where we create our enemy. As we only want the enemies to move straight down, we need to change the vx to 0. Change **mySprite** to the name of your enemy. 
-
-  
-
-We will now pull a ``||sprites:set [mySprite] position to||`` block into the ``||game:on game update every||`` container to make all enemies start at the top of the screen. Once again, change **mySprite** to the name of your enemy. 
-
-  
-
-Under ``||math:Math||`` grab a ``||math:pick random||`` block and place it into the x oval of our ``||sprites:set  [mySprite] position to ||`` block. Change the 10 to 160. Now the enemies will start at any point along the top of the screen. 
-
-  
-
-Notice how many enemies are coming down? We can change this by modifying the number at the top of the container. Instead of 500 ms, try 1 second (1000 ms). 
-
-   
-
-  
-
-## GBS: Ninja Invaders 
-
-### Ready, Aim, LAUNCH! 
-
-Now we are going to code our projectiles. To start, we are going to need a new container. Let's use the ``||controller:on A button pressed||``. This can be placed anywhere on the coding area. Code we place in this new container will run when we hit the space bar. 
-
-  
-
-  
-
-In this container we are going to place a ``||variables:set [projectile] to||`` block from the ``||sprites:Sprites||`` dropdown. 
-
-  
-
-  
-
-At the end of the ``||variables:projectile||`` block we just placed in, change the (vx) to 0 and the (vy) to -100. This will make our sprites go straight up at a good speed. 
-
-  
-
-  
-
-Click the grey oval and either select a picture from **Gallery** or select the shuriken under **My Assets**. 
-
-  
-
-  
-
-Change the **mySprite** to the name of your player, that way it will look like your player is firing the shots. 
-
-  
-
-  
-
-Open the game and try it out. Our character can now shoot projectiles when you press space. 
-
-  
-
-  
-
-## GBS: Ninja Invaders 
-
-### Destroy The Enemies Part 1 
-
-  
-
-  
-
-For our next step, go to ``||sprites:Sprites||`` and grab the ``||sprites: on sprite of kind [Player] overlaps otherSprite of kind [Player]||``. 
-
-  
-
-  
-
-Change the first sprite kind from ``||sprites:Player||`` to ``||sprites:Projectile||``, and the second from ``||sprites:Player||`` to ``||sprites:Enemy||``. 
-
-  
-
-  
-
-Now when our **Projectile** hits the **Enemy**, the code we place in this container will run. 
-
-  
-
-## GBS: Ninja Invaders 
-
-### Destroy The Enemies Part 2 
-
-Place a ``||sprites:destroy [mySprite]||`` block inside our new overlap container. Drag the ``||variables:otherSprite||`` oval to where it says **mySprite** in the ``||sprites:destroy||`` block. 
-
-  
-
-Now click the + button on the new destroy block. Pick a fun effect and try it out. It is recommended to change the duration time to either 100 ms or 200 ms. 
-
-  
-
-The projectile sprite never stops moving, so let’s also destroy that as well. Place another ``||sprites:destroy [mySprite] ||`` at the bottom of the overlap container. This time drag the ``||variables:sprite||`` oval to where it says **mySprite** in the ``||sprites:destroy||`` block.  
-
- 
-
- 
-
-  
-
-Last but not least, go to ``||info:Info||`` and grab a ``||info:change score by||`` block. Place this in our overlap container. 
-
-  
-
-  
-
 Try the game out! When you are ready, move on to the final step. 
 
-  
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
-  
+```blocks
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(sprite)
+    sprites.destroy(otherSprite, effects.spray, 200)
+    info.changeScoreBy(1)
+})
+scene.setBackgroundColor(9)
+let ninja = sprites.create(assets.image`ninja`, SpriteKind.Player)
+ninja.setPosition(80, 100)
+controller.moveSprite(ninja, 100, 0)
+ninja.setStayInScreen(true)
+info.setScore(0)
+```
 
-## GBS: Ninja Invaders 
-
+## Customizations!
 ### ``||variables:C||`` ``||controller:u||`` ``||loops:s||`` ``||animation:t||`` ``||logic:o||`` ``||sprites:m||`` ``||music:i||`` ``||math:z||`` ``||scene:e||`` 
 
-**The tutorial is finished, but now it's time to customize our game! Here are a few examples of things to try:** 
+The tutorial is finished, but now it's time to customize your game! 
 
-  
+Otherwise, click **Done** to open your game in MakeCode Arcade then follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
 
-  
+---
 
--Put a dialog box or splash screen for game instructions. 
+Here are a few things to try:
 
-  
+- :paint brush: Customize the sprites and background to your liking. It's your game! 
+- :headphones: Use a ``||music:play sound||`` block to add sound effects for even more fun!
+- :circle: Use ``||game:splash||`` or ``||game:show long text||`` blocks to add game instructions.
+- :trophy: Allow a way to win. From ``||info:Info||`` add a ``||info:start countdown||`` or a ``||info:on score||`` block to your game!
+- :repeat: Add animations! Make the projectiles spin or change color as they fly. 
+- :paper plane: Make a new type of enemy sprite. Maybe something that moves faster or is harder to destroy?  
 
-  
+*Decide with your Sensei which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.* 
 
--Customize the sprites and background to your liking. It's your game! (The fill option in the sprite editor can speed this process up) 
-
-  
-
-  
-
--Put sound effects in the game for even more fun! 
-
-  
-
-  
-
--Allow a way to win. Add a timer, add lives, or some combination. Maybe a highscore? Be creative! 
-
-  
-
-  
-
--Add animations. For example, make the projectiles spin or change color as they fly. 
-
-  
-
-  
-
--Make a new type of enemy. Maybe something that moves faster? Perhaps its harder to destroy? 
-
-  
-
-  
-
-*Decide with your Sensei on which customizations you want to make to your game. When you are ready, click **Done**.* 
-
- 
-
- 
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
