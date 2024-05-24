@@ -65,7 +65,8 @@ In this tutorial, you will create your very own video game. Enemies will be fall
 
 Click **Ok** to get started! 
 
-![Game Example](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/ninja-invader-gif.gif) 
+![Game Example](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/ninja-invader-gif.gif?raw=true "Ninja Invaders project")
+
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
 ## Welcome!
