@@ -10,7 +10,8 @@
         "README.md",
         "assets.json",
         "ninja-keeper.md",
-        "ninja-invaders.md"
+        "ninja-invaders.md",
+        "hiding-ninja.md"
     ],
     "testFiles": [
         "test.ts"
