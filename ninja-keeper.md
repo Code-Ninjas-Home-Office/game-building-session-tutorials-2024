@@ -123,8 +123,8 @@ Add the sprite images for the soccer ball and goalkeeper!
 
 A **sprite** is an object in a game's program.
 
-- :mouse pointer: Click the gray square in the ``||variables(sprites):set ball to||`` code block, then select the **ball** image from My Assets.
-- :mouse pointer: Click the gray square in the ``||variables(sprites):set goalie to||`` code block, then select the **goalie** image from My Assets.
+- :mouse pointer: Click the gray square in the ``||variables(sprites):set ball to||`` code block, then select the **ball** image from **My Assets**.
+- :mouse pointer: Click the gray square in the ``||variables(sprites):set goalie to||`` code block, then select the **goalie** image from **My Assets**.
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
@@ -138,7 +138,7 @@ let goalie = sprites.create(assets.image`goalie`, SpriteKind.Enemy)
 
 Move the ball with the up and down arrow keys!
 
-- :function: Click **Advanced**. Open ``||functions:Functions||`` then drag a ``||functions:call resetPlayers||`` block into the ``||loops:on start||`` container under the sprites' code.
+- :function: Click **Advanced**. Open ``||functions:Functions||`` then drag a ``||functions:call resetPlayers||`` block into the bottom of the ``||loops:on start||``.
 - :keyboard: Test out your game! Use the **up** and **down arrows** or **W** and **S** to move the ball up and down. 
 
 *Watch out for the goalkeeper sprite following the ball sprite!*
@@ -221,8 +221,9 @@ let ball: Sprite = null
 
 Add a sprite to the net that will help you count the goals scored.
 
-- :paper plane: Open ``||sprites:Sprites||`` and drag out ``||variables(sprites):set [goal] to||`` into the ``||loops:on start||`` container below the other code.
-- :paper plane: Open ``||sprites:Sprites||`` again and drag out ``||sprites:set [goal] x to (160)||`` into the ``||loops:on start||`` container below ``||variables(sprites):set [goal] to||``.
+- :paper plane: Open ``||sprites:Sprites||`` and drag out ``||variables(sprites):set goal to||`` into the ``||loops:on start||`` container below the other code.
+- :mouse pointer: Click the gray square in the ``||variables(sprites):set goal to||`` code block, then select the **goal** image from **My Assets**.
+- :paper plane: Open ``||sprites:Sprites||`` again and drag out ``||sprites:set goal x to (160)||`` into the ``||loops:on start||`` container below ``||variables(sprites):set goal to||``.
 
 *Notice the new white line in the net. This will be used in the next step to determine if you scored a goal!*
 
