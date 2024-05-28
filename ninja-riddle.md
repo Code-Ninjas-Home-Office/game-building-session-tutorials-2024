@@ -283,11 +283,11 @@ ninja.setPosition(80, 100)
 ```
 
 ## Riddle Me This!
-Add the Ninja's riddle!
+Come up with a riddle question and answer, then add it to the game!
 
 - :paper plane: Open ``||sprites:Sprites||`` and drag out the entire ``||sprites:on sprite (Player) overlaps (Enemy)||`` chunk of code and place it anywhere in the editor.
-- :mouse pointer: Click the bubble in the ``||game:ask for string||`` block to type the riddle **question**.
-- :mouse pointer: Click the bubble after the **=** sign to type the riddle **answer**.  
+- :mouse pointer: Click the bubble in the ``||game:ask for string||`` block to type your riddle's **question**.
+- :mouse pointer: Click the bubble after the **=** sign to type your riddle's **answer**.
 
 Try the game out: see what happens when the Player sprite overlaps the Ninja! 
 
