@@ -488,7 +488,6 @@ Here are a few things to try:
 - :headphones: Use a ``||music:play sound||`` block to add sound effects for even more fun!
 - :id card: Use a ``||info:start countdown||`` timer to challenge the user to complete the game in a certain amount of time.
 - :circle: Use ``||game:splash||`` or ``||game:show long text||`` blocks to add game instructions.
-- :repeat: Add animations! Make the projectiles spin or change color as they fly. 
 
 *Decide with your Sensei which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.* 
 
