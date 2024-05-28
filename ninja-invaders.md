@@ -271,8 +271,6 @@ info.setScore(0)
 
 The tutorial is finished, but now it's time to customize your game! 
 
-Otherwise, click **Done** to open your game in MakeCode Arcade then follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
-
 ---
 
 Here are a few things to try:
@@ -284,6 +282,8 @@ Here are a few things to try:
 - :repeat: Add animations! Make the projectiles spin or change color as they fly. 
 - :paper plane: Make a new type of enemy sprite. Maybe something that moves faster or is harder to destroy?  
 
-*Decide with your Sensei which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.* 
+Decide which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.
+
+Then, follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
