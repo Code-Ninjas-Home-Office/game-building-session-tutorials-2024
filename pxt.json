@@ -11,7 +11,8 @@
         "assets.json",
         "ninja-keeper.md",
         "ninja-invaders.md",
-        "hiding-ninja.md"
+        "hiding-ninja.md",
+        "ninja-riddle.md"
     ],
     "testFiles": [
         "test.ts"
