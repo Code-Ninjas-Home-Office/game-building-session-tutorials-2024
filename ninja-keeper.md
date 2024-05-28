@@ -376,15 +376,21 @@ game.showLongText("Score as many goals as you can. Don't let the goalie get the 
 
 ## Customizations!
 
-If time remains, use the suggestions below to customize your game! 
+### ``||variables:C||`` ``||controller:u||`` ``||loops:s||`` ``||animation:t||`` ``||logic:o||`` ``||sprites:m||`` ``||music:i||`` ``||math:z||`` ``||scene:e||`` 
 
-Otherwise, click **Done** to open your game in MakeCode Arcade then follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
+The tutorial is finished, but now it's time to customize your game!
 
 ---
+
+Here are a few things to try:
 
 - :paper plane: Add more defensive players! Create additional **Enemy** sprites that will help the goalkeeper block the ball from entering the net!
 - :paint brush: Change sports! Edit the background image and ball sprite to make this game about a different sport, such as hockey or football. Change the size of the goal sprite, too!
 - :id card: Change the timer and score! Edit the score and timer **parameters** to change the length of the game and how many points scored with each goal!
 - :headphones: Change the sounds and music! Edit the sounds played when the ball is kicked, a goal is scored, and the game ends! 
+
+Decide which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.
+
+Then, follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
