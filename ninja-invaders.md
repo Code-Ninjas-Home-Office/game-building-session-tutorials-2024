@@ -111,7 +111,7 @@ As you add code to your project, look at the Game Window on the **lower right** 
 Now we are going to create our main character. 
 
 - :paper plane: Open ``||sprites:Sprites||`` and drag the ``||variables(sprites):set ninja to||`` block to the bottom of the ``||loops: on start||`` container. 
-- :mouse pointer: Click the grey oval and select the **ninja** picture from **My Assets**. 
+- :mouse pointer: Click the grey square and select the **ninja** picture from **My Assets**. 
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
@@ -129,7 +129,7 @@ Code the sprite to move left and right across the screen.
 
 - :paper plane: Open ``||sprites:Sprites||`` and drag ``||sprites:set ninja position||`` to the bottom of the ``||loops: on start||`` container. 
 - :keyboard: Set the **x** value to 80 and the **y** value to 100. 
-- :game controller: Open ``||controller:Controller||`` and drag the ``||controller:move ninja with buttons||`` block to the bottom of the ``||loops:on start||`` container.
+- :game controller: Open ``||controller:Controller||`` and drag the ``||controller:move ninja with buttons||`` block to the bottom of the ``||loops:on start||``.
 - :paper plane: Open ``||sprites:Sprites||`` and drag ``||sprites:set ninja stay in screen |`` to the bottom of the ``||loops:on start||``.
 
 Try it out: use the **left** and **right** arrow keys or **A** and **D** to move the ninja sprite! 
@@ -172,7 +172,7 @@ game.onUpdateInterval(1000, function () {
 Make the Enemy sprites fall!
   
 - :paper plane: Open ``||sprites:Sprites||`` and drag a ``||sprites:set enemySprite position to||`` block into the ``||game:on game update||`` container below the other code.
-- :keyboard: In the ``||math:pick random||`` block, change **10** to **160** so Enemy sprites will appear anywhere along the top of the screen.
+- :keyboard: In the ``||math:pick random||`` block, change the **10** to **160** so Enemy sprites will appear anywhere along the top of the screen.
 - :paper plane: Open ``||sprites:Sprites||`` and drag a ``||sprites:set enemySprite velocity to||`` block into the ``||game:on game update||`` container below the other code.
 - :keyboard: Change the **vx** to **0** so the Enemy sprites only move down.
 
@@ -199,7 +199,7 @@ Now we are going to code our ninja sprite's projectiles.
 
 - :game controller: Open ``||controller:Controller||`` and drag out a ``||controller:on A button pressed||`` container into the coding area.
 - :paper plane: Open ``||sprites:Sprites||`` and drag a ``||variables(sprites):set projectile to||`` block into the container. 
-- :mouse pointer: Click the grey box and select the **ninjaStar** from **My Assets**.
+- :mouse pointer: Click the grey box and select **ninjaStar** from **My Assets**.
 - :keyboard: Change the **vx** to **0** and the **vy** to **-100** to make the projectiles go straight up.
 
 Try it out: use the A button or the space key to launch projectiles upwards!
@@ -222,7 +222,7 @@ Write the code to destroy the enemies with the projectiles!
 
 - :paper plane: Open ``||sprites:Sprites||`` and drag out a ``||sprites:on sprite overlaps||`` container into the coding area.
 - :paper plane: Open ``||sprites:Sprites||`` and drag **2** ``||sprites:destroy||`` blocks into the ``||sprites:overlap||`` container.
-- :mouse pointer: Drag the ``||variables:sprite||`` oval from the container onto the ``||sprites:destroy||`` block to replace **mySprite**.
+- :mouse pointer: Drag the ``||variables:sprite||`` oval from the ``||sprites:overlap||`` container onto the ``||sprites:destroy||`` block to replace **mySprite**.
 - :mouse pointer: Repeat with the ``||variables:otherSprite||`` oval into the other ``||sprites:destroy||`` block.
 - :mouse pointer: Click the **+** to pick a fun effect. Change the duration time to either 100 ms or 200 ms. 
 
@@ -245,8 +245,8 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
 ## Keep track of the score!
 Use MakeCode Arcade's built-in scoring system to keep track of the Enemy sprites you destroyed!
 
-- :id card: Open ``||info:Info||`` and drag a ``||info:set score to 0||`` block into the ``||loops:on start||`` container below the other code.
-- :id card: Open ``||info:Info||`` and drag a ``||info:change score by 1||`` block into the ``||sprites:overlap||`` container. 
+- :id card: Open ``||info:Info||`` and drag a ``||info:set score to 0||`` block into the bottom of the ``||loops:on start||`` container.
+- :id card: Open ``||info:Info||`` and drag a ``||info:change score by 1||`` block into the bottom of the ``||sprites:overlap||`` container. 
   
 Try the game out! When you are ready, move on to the final step. 
 
