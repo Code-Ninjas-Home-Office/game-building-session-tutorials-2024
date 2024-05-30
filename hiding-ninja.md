@@ -87,6 +87,9 @@ ninja = sprites.create(img`
 ninja.setPosition(randint(0, 160), randint(0, 120))
 info.setScore(0)
 game.showLongText("Find the Hiding Ninja!", DialogLayout.Bottom)
+music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+game.splash("")
+info.startCountdown(10)
 ```
 
 
@@ -487,8 +490,6 @@ Here are a few things to try:
 - :id card: Use a ``||info:start countdown||`` timer to challenge the user to complete the game in a certain amount of time.
 - :circle: Use ``||game:splash||`` or ``||game:show long text||`` blocks to add game instructions.
 
-Decide which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.
-
-Then, follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
+When you are finished, click **Done** then follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
