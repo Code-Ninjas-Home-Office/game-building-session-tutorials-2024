@@ -55,7 +55,36 @@ game.onUpdateInterval(1000, function () {
     enemySprite.setPosition(randint(0, 160), 0)
     enemySprite.setVelocity(0, 50)
 })
-
+info.onScore(100, function () {
+	
+})
+music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+game.splash("")
+game.showLongText("", DialogLayout.Bottom)
+info.startCountdown(10)
+animation.runImageAnimation(
+mySprite,
+[img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `],
+500,
+false
+)
 ```
 
 ## Introduction @showdialog 
@@ -278,12 +307,10 @@ Here are a few things to try:
 - :paint brush: Customize the sprites and background to your liking. It's your game! 
 - :headphones: Use a ``||music:play sound||`` block to add sound effects for even more fun!
 - :circle: Use ``||game:splash||`` or ``||game:show long text||`` blocks to add game instructions.
-- :trophy: Allow a way to win. From ``||info:Info||`` add a ``||info:start countdown||`` or a ``||info:on score||`` block to your game!
-- :repeat: Add animations! Make the projectiles spin or change color as they fly. 
+- :trophy: Allow a way to win. Use a ``||info:start countdown||`` or a ``||info:on score||`` block to your game!
+- :repeat: Add ``||animation:animation||``! Make the projectiles spin or change color as they fly. 
 - :paper plane: Make a new type of enemy sprite. Maybe something that moves faster or is harder to destroy?  
 
-Decide which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.
-
-Then, follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
+When you are finished, click **Done** then follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
