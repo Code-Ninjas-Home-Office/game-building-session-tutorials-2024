@@ -108,6 +108,9 @@ let ninja = sprites.create(img`
 ninja.setPosition(80, 100)
 game.showLongText("What do Code Senseis teach kids at Code Ninjas?", DialogLayout.Center)
 game.showLongText("Ask the Senseis for hints! Talk to the Ninja when you know the answer!", DialogLayout.Center)
+music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+game.splash("")
+info.startCountdown(10)
 ```
 
 
@@ -537,8 +540,6 @@ Here are a few things to try:
 - :headphones: Use a ``||music:play sound||`` block to add sound effects for even more fun!
 - :id card: Use a ``||info:start countdown||`` timer to challenge the user to solve the riddle in a certain amount of time.
 
-Decide which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.
-
-Then, follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
+When you are finished, click **Done** then follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
