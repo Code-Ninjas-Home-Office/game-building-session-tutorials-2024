@@ -390,8 +390,6 @@ Here are a few things to try:
 - :id card: Change the timer and score! Edit the score and timer **parameters** to change the length of the game and how many points scored with each goal!
 - :headphones: Change the sounds and music! Edit the sounds played when the ball is kicked, a goal is scored, and the game ends! 
 
-Decide which customizations you want to make to your game. Click **Done** then use the MakeCode Arcade editor to access the full list of code blocks in the Toolbox.
-
-Then, follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
+When you are finished, click **Done** then follow your Code Sensei's guidance to create a shareable link that will let you play your game at home!
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
